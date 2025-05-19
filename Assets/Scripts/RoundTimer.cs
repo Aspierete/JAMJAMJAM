@@ -7,11 +7,10 @@ public class RoundTimer : MonoBehaviour
     [SerializeField] private float roundDuration = 5f;
     [SerializeField] private Image timerImage;
 
-    
-
     private bool isRoundStarted;
     void Start()
     {
+        Time.timeScale = 0f;
         timeLeft = roundDuration;
     }
 
@@ -25,6 +24,7 @@ public class RoundTimer : MonoBehaviour
     {
         if (Input.GetKeyDown(KeyCode.Space) && !isRoundStarted)
         {
+            Time.timeScale = 1f;
             isRoundStarted = true;
         }
 
