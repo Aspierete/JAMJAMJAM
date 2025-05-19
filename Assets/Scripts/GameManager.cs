@@ -3,15 +3,13 @@ using UnityEngine;
 
 public class GameManager : MonoBehaviour
 {
+    public static GameManager Instance { get; private set; }
+
+    [SerializeField] private int earnedMoney;
 
     [SerializeField] private TextMeshProUGUI roundGoalText;
     [SerializeField] private TextMeshProUGUI earnedMoneyText;
-
-    public int earnedMoney { get; private set; }
-    public int roundGoal { get; private set; } = 400;
-
-    public static GameManager Instance { get; private set; }
-
+    [SerializeField] private int roundGoal = 400;
 
     void Awake()
     {
@@ -45,17 +43,5 @@ public class GameManager : MonoBehaviour
     private void RoundGoalText()
     {
         roundGoalText.SetText(roundGoal.ToString());
-    }
-
-    public void RoundResult()
-    {
-        if (earnedMoney >= roundGoal)
-        {
-            print("win");
-        }
-        else
-        {
-            print("lose");
-        }
     }
 }

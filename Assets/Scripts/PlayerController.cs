@@ -45,6 +45,7 @@ public class PlayerController : MonoBehaviour
 
         if (inputDir.magnitude >= 0.1f)
         {
+
             Quaternion rotation = Quaternion.LookRotation(inputDir);
 
             transform.position += inputDir * moveSpeed * Time.deltaTime;
@@ -54,6 +55,7 @@ public class PlayerController : MonoBehaviour
 
     private void PickUpObject()
     {
+
         if (Input.GetKeyDown(KeyCode.E))
         {
             isHitShelf = Physics.BoxCast(playerCollider.bounds.center, transform.localScale / 2, transform.forward, out hit, transform.rotation, hitDistance, shelfLayer);
