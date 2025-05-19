@@ -38,9 +38,10 @@ public class RoundTimer : MonoBehaviour
         else
         {
             // TODO: round end logic should goes here. 
+            GameManager.Instance.RoundResult();
             isRoundStarted = false;
             timeLeft = roundDuration;
-            timerImage.fillAmount = roundDuration; 
+            timerImage.fillAmount = roundDuration;
         }
     }
 }

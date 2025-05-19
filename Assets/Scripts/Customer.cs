@@ -37,23 +37,41 @@ public class Customer : MonoBehaviour
 
     public void CheckDelivery(ShipPart deliveredPart)
     {
-        foreach (ShipPart shipPart in customerOrder)
-        {
-            if (deliveredPart.shipParts == shipPart.shipParts)
+        bool matchFound = false;
+
+        for (int i = 0; i < customerOrder.Count; i++) {
+            if (deliveredPart.shipParts == customerOrder[i].shipParts)
             {
-                print("true order");
-                customerOrder.Remove(shipPart);
+                matchFound = true;
+                customerOrder.RemoveAt(i);
 
                 OrderIconUpdate();
                 CompleteOrder();
-                return;
-            }
-            else
-            {
-                print("wrong order");
-                Destroy(gameObject);
+                break;
             }
         }
+
+        if (!matchFound)
+        {
+            Destroy(gameObject);
+        }
+        // foreach (ShipPart shipPart in customerOrder)
+        // {
+        //     if (deliveredPart.shipParts == shipPart.shipParts)
+        //     {
+        //         print("true order");
+        //         customerOrder.Remove(shipPart);
+
+        //         OrderIconUpdate();
+        //         CompleteOrder();
+        //         break;
+        //     }
+        //     else
+        //     {
+        //         print("wrong order");
+        //         Destroy(gameObject);
+        //     }
+        // }
     }
 
     private void ShowOrderIcons()
