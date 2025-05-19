@@ -47,7 +47,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   shipParts: 4
-  shipPartIcon: {fileID: 21300000, guid: 7aface8b80e195a4b87d5a2468ad62b4, type: 3}
+  shipPartIcon: {fileID: 0}
 --- !u!1 &1265100079114355335
 GameObject:
   m_ObjectHideFlags: 0
